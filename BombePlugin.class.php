@@ -16,5 +16,11 @@ class BombePlugin extends StudIPPlugin implements SystemPlugin {
                 UpdateInformation::setInformation("Bombe.getHit", $bomben);
             }
         }
+        if (Navigation::hasItem("/profile")) {
+
+        }
+        PageLayout::addBodyElements('<audio style="display: none;" id="bombe_sound" preload="none">
+            <source type="audio/mpeg" src="'.$this->getPluginURL().'/assets/zangrutz_bomb-small.mp3"></source>
+        </audio>');
     }
 }
