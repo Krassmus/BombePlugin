@@ -15,7 +15,7 @@ class InitPluginMigration extends Migration {
                 `user_id` varchar(32)  NOT NULL,
                 `bomb_url` varchar(128)  NOT NULL,
                 `hit` tinyint(4) NOT NULL DEFAULT '0',
-                `precise_hit` tinyint(4) NOT NULL DEFAULT '0',
+                `deactivated` tinyint(4) NOT NULL DEFAULT '0',
                 `chdate` bigint(20) NOT NULL,
                 `mkdate` bigint(20) NOT NULL,
                 PRIMARY KEY (`bomb_id`)

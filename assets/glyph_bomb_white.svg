@@ -18,7 +18,7 @@
    sodipodi:docname="glyph_bomb.svg"><metadata
      id="metadata9"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
      id="defs7" /><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -42,4 +42,4 @@
      d="M 33,15.655 V 9 H 30.443 C 31.408,7.177 34.332,4 43,4 V 0 C 29.807,0 26.815,6.701 26.178,9 H 24 v 6.401 C 14.871,17.255 8,25.324 8,35 8,46.046 16.954,55 28,55 39.046,55 48,46.046 48,35 48,25.684 41.621,17.879 33,15.655 z"
      id="path3"
      inkscape:connector-curvature="0"
-     style="fill:#231f20" /></svg>
+     style="fill:#ffffff" /></svg>

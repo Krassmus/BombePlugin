@@ -14,7 +14,7 @@ class ManagerController extends PluginController {
     public function set_bomb_action()
     {
         if (Request::isPost() && Request::get("user_id")) {
-            $recent_bombs = Bombe::countBySQL("user_id = ? AND from_user = ? AND hit = '0' AND mkdate > UNIX_TIMESTAMP() - 2 * 60", array(Request::get("user_id"), $GLOBALS['user']->id));
+            $recent_bombs = Bombe::countBySQL("user_id = ? AND from_user = ? AND hit = '0' AND deactivated = '0' AND mkdate > UNIX_TIMESTAMP() - 2 * 60", array(Request::get("user_id"), $GLOBALS['user']->id));
 
             if ($recent_bombs < 1) {
                 $bombe = new Bombe();
