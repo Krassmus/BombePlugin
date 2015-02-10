@@ -13,7 +13,7 @@ class ManagerController extends PluginController {
 
     public function set_bomb_action()
     {
-        if (Request::isPost() && Request::get("user_id")) {
+        if (Request::isPost() && Request::get("user_id") && Request::get("user_id") !== $GLOBALS['user']->id) {
             $recent_bombs = Bombe::countBySQL("user_id = ? AND from_user = ? AND hit = '0' AND deactivated = '0' AND mkdate > UNIX_TIMESTAMP() - 2 * 60", array(Request::get("user_id"), $GLOBALS['user']->id));
 
             if ($recent_bombs < 1) {
@@ -22,10 +22,12 @@ class ManagerController extends PluginController {
                 $bombe['from_user'] = $GLOBALS['user']->id;
                 $bombe['bomb_url'] = $this->plugin->getPluginURL()."/assets/glyph_bomb.svg";
                 $bombe->store();
-                PageLayout::postMessage(MessageBox::info(_("Eine Bombe wurde gelegt. Wenn der Nutzer in den nächsten zwei Minuten online ist, geht sie hoch.")));
+                PageLayout::postMessage(MessageBox::success(_("Eine Bombe wurde gelegt. Wenn der Nutzer in den nächsten zwei Minuten online ist, geht sie hoch.")));
             } else {
                 PageLayout::postMessage(MessageBox::error(_("Eine Bombe wartet noch darauf, hoch zu gehen. Die müssen Sie erst einmal abwarten. Probieren Sie es gleich wieder.")));
             }
+        } elseif (Request::get("user_id") === $GLOBALS['user']->id) {
+            PageLayout::postMessage(MessageBox::error(_("Sie können sich doch nicht selbst bombardieren. Wo kämen wir denn da hin?")));
         }
     }
 }
